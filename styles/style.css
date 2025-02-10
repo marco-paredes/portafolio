@@ -101,6 +101,13 @@ li a:hover {
     justify-content: center;
     gap: 40px;
 }
+.ordenar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+    gap: 60px;  
+}
 
 .home{
     align-items: center;
@@ -166,14 +173,6 @@ justify-content: center;
     filter: drop-shadow(10px 10px 2px #222831);    
 }
 
-.ordenar{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 60px;
-    gap: 60px;
-   
-}
 .about__logo{
     clip-path: circle(45%);
 }
@@ -280,21 +279,64 @@ justify-content: center;
     padding: 15px 0;
     clip-path: circle(25%);
 }
+section.blog{
+    background-color: var(--color-secundario);
+}
 .blog__content{
-
-
+    background-color: var(--color-secundario);
+    padding: 1px;
+    width: 280px;
+}
+.blog__imagen__principal{
+    border-radius: 8px;
+}  
+.blog__titulo{
+    color: var(--color-extra);
+}
+.blog__titulo__small {
+    padding: 15px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: var(--fuente-montserrat);
+    font-weight: 600;
+    color: var(--color-extra);
+}
+.blog__texto{
+    color: var(--color-extra);
+}
+.blog__enlaces__texto{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    font-size: 3rem;
+    font-family: var(--fuente-krona);
+    color: var(--color-extra);
+    border: 2px solid var(--color-primario);
+    background-color: var(--color-terciario);
+    padding: 15px 0;
+    clip-path: circle(30%);
+}
+.blog__enlaces__texto:hover{
+    color: var(--color-primario);
+    background-color: var(--color-extra);
 }
 
-.pagination a {
-    color: green;               
-    border: 5px solid #ddd;     
-    padding: 5px 10px;         
-    margin: 0 5px;           
+div.gallery {
+    margin: 5px;
+    
+    float: left;
+    width: 270px;
 }
-
-.page {
-    display: none;         
+  
+div.gallery:hover {
+    border: 1px solid #777;
 }
-.active {
-    display: block;      
+  
+div.gallery img {
+    width: 100%;
+    height: 160;
 }
+  
+ 
