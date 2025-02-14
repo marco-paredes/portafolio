@@ -10,17 +10,32 @@
     <title>Portafolio | Marco Paredes</title>
 </head>
 <body>
-    <header class="header">
-        <nav class="nav">
-            <ul>
-                <li><a href="default.asp">Home</a></li>
-                <li><a href="news.asp">Sobre mí</a></li>
-                <li><a href="contact.asp">Proyectos</a></li>
-                <li><a href="contact.asp">Habilidades</a></li>
-                <li><a href="contact.asp">Blog</a></li>
-                <li style="float:right";><a href="about.asp" class="active">Contacto</a></li>
-            </ul>
-        </nav>
+    <header class="header" >
+            <nav class="nav">
+                <a href="#" class="nav__logo">
+                    <img 
+                    height="50"
+                    width="50"
+                    src="../assets/logo_blanco.png" alt="logo blanco">
+                <div>Marco Paredes 
+                    <br> {code} </div>
+                </a>
+                <button class="nav__open__menu" aria-label="Abrir menú">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <ul class="nav__menu nav__menu__opened">
+                    <button class="nav__close__menu" aria-label="Cerrar menú">
+                        <i class="fa-solid fa-rectangle-xmark"></i>
+                    </button>
+                    <li class="nav__menu__link"><a href="#" class="active">Home</a></li>
+                    <li class="nav__menu__link"><a href="#sobre__mi">Sobre_mí</a></li>
+                    <li class="nav__menu__link"><a href="#proyectos">Proyectos</a></li>
+                    <li class="nav__menu__link"><a href="#skills">Habilidades</a></li>
+                    <li class="nav__menu__link"><a href="#blog">Blog</a></li>
+                    <li class="nav__menu__link"><a href="#contacto" >Contacto</a></li>
+                </ul>
+            </nav>
+        
     </header>
     <main class="main__content">
         <section class="content home">
@@ -33,13 +48,12 @@
                     <a href="" class="presentacion__enlace__texto">Portafolio - CV</a>
                 </div>
             </div>
-            
-            <img src="../assets/yo2.jpg" class="presentacion__foto" alt="foto de Marco">
+            <img src="../assets/yo2.jpg" class="presentacion__imagen" alt="foto de Marco">
         </section>
         
         <section class="content light">
             <div class="content__primario">
-                <h2 class="h2__light">Acerca de mí</h2>
+                <h2 class="h2__light" id="sobre__mi">Acerca de mí</h2>
                 <div class="ordenar">
                     <img src="../assets/logo_oscuro.png" class="about__logo" alt="logo de Marco">
                     <div class="about__content subcontent">
@@ -57,7 +71,7 @@
         </section>
         <section class="content">
             <div class="content__primario">
-                <h2>Proyectos</h2>
+                <h2 id="proyectos">Proyectos</h2>
                 <div class="ordenar">
                     <div class="proyectos__content subcontent">
                         <img src="../assets/logo_oscuro.png" alt="" style=width:100%;>
@@ -90,7 +104,7 @@
                 </div>
             </div>
         </section>
-        <section class="content light" style="height: 900px;">
+        <section id="skills" class="content light" style="height: 900px;">
             <div class="content__primario">
                 <div class="ordenar">
                     <h2 class="skills__titulo">Conocimientos <br> y Habilidades</h2>
@@ -190,8 +204,8 @@
         </section>
         <section class="content blog">
             <div class="content__primario">
-                <h2>Blog</h2>
-                <div class="ordenar">
+                <h2 id="blog" class="blog__titulo" >Blog</h2>
+                <div class="ordenar" style="align-items: flex-start;">
                     <div>
                         <img src="../assets/logo_oscuro.png" class="blog__imagen__principal" alt="imagen de blog de Marco" width="770" height="464">
                         <h3 class="blog__titulo">Título de blog</h3>
@@ -207,14 +221,6 @@
                                 </a>
                               <div class="blog__titulo__small">Título del Artículo</div>
                             </div>
-                              
-                            <div class="gallery">
-                                <a target="_blank" href="img_forest.jpg">
-                                  <img src="../assets/logo_oscuro.png" alt="Forest" width="270" height="160">
-                                </a>
-                              <div class="blog__titulo__small">Título del Artículo</div>
-                            </div>
-                              
                             <div class="gallery">
                                 <a target="_blank" href="img_lights.jpg">
                                   <img src="../assets/logo_oscuro.png" alt="Northern Lights" width="270" height="160">
@@ -227,12 +233,49 @@
                 </div>
             </div>
         </section>
+        <section class="content contacto__light">
+            <div class="contacto__content">
+                <h2 id="contacto" class="h2__light">Contacto</h2> <br>
+                <div class="contacto__ordenar">
+                    <form action="/action_page.php">
+                        <div class="row">
+                          <div class="col-25">
+                            <label for="name">Nombre</label>
+                          </div>
+                          <div class="col-75">
+                            <input type="text" id="name" name="name" placeholder="Tu nombre...">
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-25">
+                            <label for="correo">E-mail</label>
+                          </div>
+                          <div class="col-75">
+                            <input type="text" id="correo" name="correo" placeholder="Tu correo...">
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-25">
+                            <label for="mensaje">Mensaje</label>
+                          </div>
+                          <div class="col-75">
+                            <textarea id="mensaje" name="mensaje" placeholder="Escribe algo..." style="height:200px"></textarea>
+                          </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                          <input type="submit" value="Enviar">
+                        </div>
+                        </form>        
+                </div>      
+            </div>
+        </section>
     </main>
     <footer>
-       
+       Derechos reservados  &copy Marco Paredes 2025
     </footer>
-    <script src="app.js" defer></script>
-    <script src="https://kit.fontawesome.com/e9feca4da6.js" crossorigin="anonymous"></script>
     
+    <script src="https://kit.fontawesome.com/e9feca4da6.js" crossorigin="anonymous"></script>
+    <script defer src="app.js"></script>
 </body>
 </html>
