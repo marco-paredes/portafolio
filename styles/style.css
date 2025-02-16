@@ -55,143 +55,93 @@ body {
     box-shadow: 0 1px 5px var(--color-extra);/*0 para sombra en X, 4px eje Y, 5px para difuminado, color de la sombra*/
 }
 
- .nav{
-    margin: 0 auto;
+.nav{
     display: flex;
     justify-content: space-between;
-    padding: 10px;
-    max-width: 980px;/*ancho máximo del nav*/
-    margin: 0 auto; /*margen arriba y abajo 0, der e izq auto*/
- }
-/*a partir de aqui es solo para el logo*/
+    align-items: center;
+    max-width: 980px;
+    margin: 0 auto;
+}
+/*esta parte es para el logo*/
 .nav__logo{
     display: flex;
-    align-items: center;
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--color-extra);
-    font-family: var(--fuente-krona);
     text-decoration: none;
+    color: var(--color-secundario);
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
 }
 .nav__logo img{
-    margin-right: 10px;
-    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    clip-path: circle(50%);
 }
-/*a partir de aquí es para el menu*/
+.nav__logotipo{
+    font-family: var(--fuente-krona);
+    font-size: 0.8rem;   
+}
+/*desde aquí es para el menu "lu"*/
 .nav__menu{
-    display: flex;
     list-style: none;
+    display: flex;
     margin: 0;
     padding: 0;
-}
-
-.nav__menu li{/*afecta solo a la etiqueta "li" que está en el nav*/
-    padding: 0 15px; /*arriba y abajo 0, izq y der 15px*/
-}
-
-.nav__menu a{ /*afecta solo a la etiqueta "a" que se encuentra dentro del nav*/
-    color: var(--color-terciario);
-    font-size: 1rem;
-    font-weight: 500;
-    font-family: var(--fuente-montserrat);
-    line-height: 50px; /*el alto del logo es de 50px, por eso se debe centrar en ese espacio generado*/
-    text-decoration: none;
-    position: relative; /*esto se combina con el "after"*/
-}
-.nav__menu a::after{
-    content: "";
-    background-color: var(--color-secundario);
-    position: absolute;
-    left: 0;
-    top: calc(100% + 4px);
-    width: 100%;
-    height: 4px;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-.nav__menu a.selected::after,
-.nav__menu a:hover::after{
-    opacity: 0.8;
-}
-.nav__menu a:hover{
-    color: var(--color-extra);
-}
-.nav__open__menu, .nav__close__menu{
-    display: none;
-}
-/*
-.nav__menu a:hover{
-    background-color: var(--color-terciario);
-    color: var(--color-extra);
-    padding: 20px;
-}
-*/
-
-@media (max-width: 768px){
-    .nav__menu{
-        flex-direction: column;
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        align-items: center;
-        background-color: var(--color-primario);
-        overflow-y: auto; /*coloca barra automática para que el contenido del menu no se extienda*/
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.25s;
-    }
-      
-    .nav__menu li{/*afecta solo a la etiqueta "li" que está en el nav*/
-        padding: 0; /*arriba y abajo 0, izq y der 15px*/
-    }
     
-    .nav__menu a{ /*afecta solo a la etiqueta "a" que se encuentra dentro del nav*/
-        color: var(--color-extra);
-        line-height: 70px; /*el alto del logo es de 50px, por eso se debe centrar en ese espacio generado*/
-        font-size: 1.5rem;
-    }
-    .nav__open__menu, 
-    .nav__close__menu{
-        display: block;
-        border: none;
-        background: none;
-        cursor: pointer;
-        color: var(--color-extra);
-        font-size: 2rem;
-
-    }
-    .nav__close__menu{
-        align-self: flex-end; /*elemento alineado de manera diferente a los demás*/
-        padding: 20px 15px;
-    }
-    .nav__menu__opened{
-        opacity: 1;
-        pointer-events: all;
-    }
-
-    .nav__open__menu:focus:not(:focus-visible),
-    .nav__close__menu:focus:not(:focus-visible){
-        outline: none;
-    }
-    .nav__menu a::after{
-        content: none;
-    }
-    .nav__menu a:hover,
-    .nav__menu a.selected{
-        color: var(--color-secundario);
-    }
-    /*
-    .nav__menu a:hover{
-        cursor: pointer;
-        background-color: var(--color-terciario);
-        color: var(--color-primario);
-        padding: 21px;
-    }
-    */
+}
+.nav__menu li{
+    margin-right: 20px;
+}
+.nav__menu a{
+    text-decoration: none;
+    font-family: var(--fuente-montserrat);
+    font-size: 1rem;
+    color: var(--color-extra);
+    transition: all 0.3s ease;
+}
+.nav__menu a:hover{
+    color: var(--color-terciario);
+    text-decoration: underline 2px solid;
+    text-underline-offset: 10px;
+    text-transform: uppercase;
 }
 
+.nav__menu a.active{
+    color: var(--color-terciario);
+    text-decoration: underline 2px solid;
+    text-underline-offset: 6px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.menu__toggle{
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-right: 20px;
+}
+@media (max-width:768px){
+    .menu__toggle{
+        display: flex;
+        font-size: 2rem;
+    }
+    .nav__menu{
+        display: none;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        padding: 40px 0;
+        position: absolute; /*para que el menu no desplace al contenido*/
+        top: 70px; /*para que no se sobreponga al nav*/
+        background-color: var(--color-primario);
+    }
+    .nav__menu.active{
+        display: flex;
+    }
+    .nav__menu li{
+        margin 10px 0;
+        text-align: center;
+    }
+}
 .main__content{
     display: flex;
     flex-direction: column;
@@ -221,6 +171,8 @@ body {
     justify-content: center;
 }
 .ordenar{
+    max-width: 980px;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -536,6 +488,8 @@ justify-content: center;
     height: auto;
 }
 .contacto__content{
+    max-width: 980px;
+    margin: 0 auto;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     width: 100%;
     text-align: center;
@@ -598,6 +552,8 @@ input[type=text], textarea {
   }
   
 .footer__contenido {
+    max-width: 980px;
+    margin: 0 auto;
     background-color: var(--color-primario);
     padding: 10px;
     text-align: center;
