@@ -46,3 +46,30 @@ menuLinks.forEach(menuLink =>{
         observer.observe(target);
     }
 })
+
+//para efecto de imagen
+window.addEventListener('scroll',function(){
+    var div = document.querySelector('.about__logo');
+    var scrollTop = window.scrollY;
+    var offsetTop = div.offsetTop;
+    var viewportHeight = this.window.innerHeight;
+
+    if (scrollTop + viewportHeight > offsetTop && scrollTop < offsetTop + div.offsetHeight) {
+        div.classList.add('mostrar');
+        } else {
+            div.classList.remove('mostrar');
+        }
+    });
+
+    window.addEventListener('scroll',function(){
+        var div = this.document.querySelector('.presentacion__imagen');
+        var scrollTop = window.scrollY;
+        var offsetTop = div.offsetTop;
+        var viewportHeight = this.window.innerHeight;
+    
+        if (scrollTop + viewportHeight > offsetTop && scrollTop < offsetTop + div.offsetHeight) {
+            div.classList.add('mostrar');
+            } else {
+                div.classList.remove('mostrar');
+            }
+        });

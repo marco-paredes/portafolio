@@ -245,7 +245,17 @@ justify-content: center;
     width: 40%;
     max-width: 400px;
     border-radius: 8px;
-    filter: drop-shadow(10px 10px 2px #222831);    
+    filter: drop-shadow(10px 10px 2px #222831);  
+
+    /*efecto barrido de imagen*/
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform 0.7s, opacity 2s 0.25s;
+}
+
+.presentacion__imagen.mostrar{
+    transform: translateX(0);
+    opacity: 1;
 }
 
 @media (max-width: 768px){
@@ -275,11 +285,18 @@ justify-content: center;
     .presentacion__imagen{ 
         
     }
+    
 }
 
 .about__logo{
     clip-path: circle(45%);
     max-width:400px;
+    /*efecto para imagen del logo*/
+    opacity: 0;
+    transition: opacity 2s;
+}
+.about__logo.mostrar{
+    opacity: 1;
 }
 .about__content{
     background-color: var(--color-primario);
