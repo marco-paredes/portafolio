@@ -20,7 +20,7 @@ navLinks.forEach(link => {
     });
 });
 
-//codigo para activar menu cuando se desliza la pantalla
+//codigo para activar elemento de menu cuando se desliza la pantalla
 const menuLinks = document.querySelectorAll('.nav__menu a[href^="#"]');
 const observer = new IntersectionObserver(
     (entries) => {
@@ -47,29 +47,79 @@ menuLinks.forEach(menuLink =>{
     }
 })
 
+//para efecto zoom grupal
+/*
+const zoomElements = document.querySelectorAll('.zoom');
+const observer1 = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry)=>{
+            if(entry.isIntersecting){
+                entry.target.classList.add('mostrar');
+            }else {
+                entry.target.classList.remove('mostrar');
+            }
+        });
+    },
+    {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5,
+    }
+);
+zoomElements.forEach((element)=>{
+    observer1.observe(element);
+});
+*/
+//funcion para efecto grupal
+function efectoGrupal(div) {
+    const grupo = document.querySelectorAll(div);
+    const observer = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry)=>{
+            if(entry.isIntersecting){
+                entry.target.classList.add('mostrar');
+            }else {
+                entry.target.classList.remove('mostrar');
+            }
+        });
+    },
+    {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5,
+    }
+);
+    grupo.forEach((element)=>{
+    observer.observe(element);
+});
+}
+
 //para efecto de imagen
-window.addEventListener('scroll',function(){
-    var div = document.querySelector('.about__logo');
-    var scrollTop = window.scrollY;
-    var offsetTop = div.offsetTop;
-    var viewportHeight = this.window.innerHeight;
-
-    if (scrollTop + viewportHeight > offsetTop && scrollTop < offsetTop + div.offsetHeight) {
-        div.classList.add('mostrar');
-        } else {
-            div.classList.remove('mostrar');
-        }
-    });
-
+function muestraEfecto(div) {
+    div.classList.add('mostrar');
     window.addEventListener('scroll',function(){
-        var div = this.document.querySelector('.presentacion__imagen');
         var scrollTop = window.scrollY;
         var offsetTop = div.offsetTop;
-        var viewportHeight = this.window.innerHeight;
-    
+        var viewportHeight = window.innerHeight;
+        
         if (scrollTop + viewportHeight > offsetTop && scrollTop < offsetTop + div.offsetHeight) {
             div.classList.add('mostrar');
             } else {
                 div.classList.remove('mostrar');
             }
-        });
+    });
+}
+//efectos independientes
+efectoGrupal('.presentacion__imagen');
+efectoGrupal('.presentacion__titulo');
+efectoGrupal('.enlaces__v');
+efectoGrupal('.about__logo');
+efectoGrupal('.about__content');
+
+//efectos grupales
+efectoGrupal('.zoom'); //efecto del mismo div en varios elementos con zoom
+efectoGrupal('.entrada__der');
+efectoGrupal('.entrada__izq');
+efectoGrupal('.entrada__abajo');
+efectoGrupal('.entrada__arriba');
+efectoGrupal('.vanish');
