@@ -173,40 +173,60 @@
             </div>
         </section>
         <section class="contacto__light content" id="contacto">
-            <div class="contacto__content zoom">
-                <h2 class="h2__light">Contacto</h2> <br>
-                <div class="contacto__ordenar">
-                    <form action="/action_page.php">
-                        <div class="row">
-                          <div class="col-25">
-                            <label for="name">Nombre</label>
-                          </div>
-                          <div class="col-75">
-                            <input type="text" id="name" name="name" placeholder="Juan Perez">
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-25">
-                            <label for="correo">E-mail</label>
-                          </div>
-                          <div class="col-75">
-                            <input type="text" id="correo" name="correo" placeholder="example@mail.com">
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-25">
-                            <label for="mensaje">Mensaje</label>
-                          </div>
-                          <div class="col-75">
-                            <textarea id="mensaje" name="mensaje" placeholder="Escribe algo..." style="height:200px"></textarea>
-                          </div>
-                        </div>
+            <div class="contacto zoom">
+                <h2 class="h2__light">Contacto</h2>
+                <div class="contacto__content">
+                    <div class="contacto__datos">
+                        <h3 class="texto">DIRECCIÓN:</h3>
+                        <p class="texto">La Paz, Bolivia</p>
                         <br>
-                        <div class="row">
-                          <input type="submit" value="Enviar">
+                        <h3 class="texto">EMAIL:</h3>
+                        <p class="texto">marcoparedes.comunicacion@gmail.com</p>
+                        <br>
+                        <p class="texto">Puedes escribirme y te responderé en al menos 24 horas</p>
+                        <div class="enlaces__h espacio">
+                            <a href="" class="footer__enlaces"><i class="fa-brands fa-whatsapp"></i></a>
+                            <a href="" class="footer__enlaces"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="" class="footer__enlaces"><i class="fa-brands fa-square-instagram"></i></a>
+                            <a href="" class="footer__enlaces"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="" class="footer__enlaces"><i class="fa-brands fa-github"></i></a>
                         </div>
+                    </div>
+                    <div class="contacto__ordenar">
+                        <form id="contact-form" class="formulario">
+                            <div class="row">
+                              <div class="col-25">
+                                <label for="name">Nombre</label>
+                              </div>
+                              <div class="col-75">
+                                <input type="text" id="nombre" name="nombre" placeholder="Juan Perez" required>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-25">
+                                <label for="email">E-mail</label>
+                              </div>
+                              <div class="col-75">
+                                <input type="email" id="email" name="email" placeholder="example@mail.com">
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-25">
+                                <label for="mensaje">Mensaje</label>
+                              </div>
+                              <div class="col-75">
+                                <textarea id="mensaje" name="mensaje" placeholder="Escribe algo..." style="height:200px"></textarea>
+                              </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                              <input type="submit" value="Enviar">
+                            </div>
                         </form>        
-                </div>                      
+                        <p id="mensaje__enviado" class="ocultar">¡Mensaje enviado con éxito!</p>
+                    </div>
+                </div>
+                                      
             </div>
         </section>
     </main>
@@ -232,5 +252,15 @@
     
     <script src="https://kit.fontawesome.com/e9feca4da6.js" crossorigin="anonymous"></script>
     <script defer src="app.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init({
+            publicKey: "oGwAV1I2Fxvebhw5F",
+        });
+    })();
+    </script>
 </body>
 </html>

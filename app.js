@@ -123,3 +123,30 @@ efectoGrupal('.entrada__izq');
 efectoGrupal('.entrada__abajo');
 efectoGrupal('.entrada__arriba');
 efectoGrupal('.vanish');
+
+emailjs.init('oGwAV1I2Fxvebhw5F');
+document.getElementById('contact-form').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const nombre = document.getElementById('nombre').value;
+    const email = document.getElementById('email').value;
+    const mensaje = document.getElementById('mensaje').value;
+
+    emailjs.send('service_6d52jla', 'template_by0ocil',{
+        nombre: nombre,
+        email: email,
+        mensaje: mensaje
+    })
+    .then(()=>{
+        document.getElementById('mensaje__enviado').classList.remove('ocultar');
+        document.getElementById('contact-form').reset();
+    })
+    .catch((error) => {
+        console.error('Error al enviar el mensaje: ', error);
+        alert('Hubo un error al enviar el mensaje. Por favor, inténtelo de nuevo.');
+    });
+});
+//<button type="submit">Enviar</button>
+//servicio id: service_6d52jla
+//template id: template_by0ocil
+//apikey: oGwAV1I2Fxvebhw5F

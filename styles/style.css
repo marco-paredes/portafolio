@@ -317,13 +317,13 @@ justify-content: center;
 
 .presentacion__imagen{
     margin: auto;
-    width: 40%;
-    max-width: 400px;
+    width: 450px;
+    max-width: 450px;
     border-radius: 8px;
     filter: drop-shadow(10px 10px 2px #222831);  
 
     /*efecto barrido de imagen*/
-    transform: translateY(45%);
+    transform: translateY(35%);
     opacity: 0;
     transition: transform 1s ease, opacity 1s ease 0.25s;
 }
@@ -581,29 +581,46 @@ justify-content: center;
         margin-right: 0;
     }
  }
-
 .contacto__light{
     background-color: var(--color-secundario);
     flex-direction: column;
-    
     height: auto;
 }
-.contacto__content{
-    max-width: 980px;
+.contacto{
+    max-width: 920px;
     margin: 0 auto;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     width: 100%;
-    text-align: center;
+    padding: 40px 0 0 40px;
+}
+ .contacto__content{
+    display: flex;
+    gap: 20px;
+}
+.contacto__datos{
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    text-align: left;
+    padding: 20px 20px 0 0;
+    gap: 10px;
+}
+
+.espacio{
     padding-top: 40px;
 }
+
 .contacto__ordenar{
-   display: block;
-   align-items: center;
-   padding: 10px;
-   width: 80%;
-      
+    min-width: 450px;
+    display: block;
+    align-items: center;
+    padding: 10px 50px;
 }
-input[type=text], textarea {
+.formulario{
+
+}
+input[type=text],[type=email], textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -627,6 +644,7 @@ input[type=text], textarea {
     border-radius: 4px;
     cursor: pointer;
     float: right;
+    width: 70%;
   }
   
   input[type=submit]:hover {
@@ -650,6 +668,16 @@ input[type=text], textarea {
     content: "";
     display: table;
     clear: both;
+  }
+  .ocultar{
+    display: none;
+  }
+  #mensaje__enviado{
+    text-align: center;
+    color: var(--color-primario);
+    margin-top: 10px;
+    font-family: var(--fuente-krona);
+    font-size: 1.5rem;
   }
   
 .footer__contenido {
