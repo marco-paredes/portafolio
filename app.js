@@ -47,29 +47,7 @@ menuLinks.forEach(menuLink =>{
     }
 })
 
-//para efecto zoom grupal
-/*
-const zoomElements = document.querySelectorAll('.zoom');
-const observer1 = new IntersectionObserver(
-    (entries) => {
-        entries.forEach((entry)=>{
-            if(entry.isIntersecting){
-                entry.target.classList.add('mostrar');
-            }else {
-                entry.target.classList.remove('mostrar');
-            }
-        });
-    },
-    {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.5,
-    }
-);
-zoomElements.forEach((element)=>{
-    observer1.observe(element);
-});
-*/
+
 //funcion para efecto grupal
 function efectoGrupal(div) {
     const grupo = document.querySelectorAll(div);
@@ -94,7 +72,7 @@ function efectoGrupal(div) {
 });
 }
 
-//para efecto de imagen
+//para efecto de imagen independiente
 function muestraEfecto(div) {
     div.classList.add('mostrar');
     window.addEventListener('scroll',function(){
@@ -115,7 +93,6 @@ efectoGrupal('.presentacion__titulo');
 efectoGrupal('.enlaces__v');
 efectoGrupal('.about__logo');
 efectoGrupal('.about__content');
-
 //efectos grupales
 efectoGrupal('.zoom'); //efecto del mismo div en varios elementos con zoom
 efectoGrupal('.entrada__der');
@@ -124,6 +101,7 @@ efectoGrupal('.entrada__abajo');
 efectoGrupal('.entrada__arriba');
 efectoGrupal('.vanish');
 
+//envía correo desde la sección de contactos
 emailjs.init('oGwAV1I2Fxvebhw5F');
 document.getElementById('contact-form').addEventListener('submit', function(e){
     e.preventDefault();
@@ -146,7 +124,62 @@ document.getElementById('contact-form').addEventListener('submit', function(e){
         alert('Hubo un error al enviar el mensaje. Por favor, inténtelo de nuevo.');
     });
 });
-//<button type="submit">Enviar</button>
-//servicio id: service_6d52jla
-//template id: template_by0ocil
-//apikey: oGwAV1I2Fxvebhw5F
+
+//para blogs
+var data = {q: 'https://www.linkedin.com/pulse/parte-7-final-kanban-un-sistema-visual-que-transforma-marco-paredes-qj3xe'}
+var data1 = {q:'https://www.linkedin.com/pulse/la-importancia-de-comunicaci%25C3%25B3n-organizacional-en-tiempos-paredes-jouxe'}
+var data2 = {q:'https://www.linkedin.com/pulse/m%25C3%25A9tricas-clave-para-evaluar-la-eficacia-de-marco-paredes-8whne'}
+
+var key = "b9948580fd578ecac9acfa6773a26b77"
+//articulo actual
+    fetch('https://api.linkpreview.net', {
+      method: 'POST',
+      headers: {
+        'X-Linkpreview-Api-Key': key,
+      },
+      mode: 'cors',
+      body: JSON.stringify(data),
+    })
+    
+      .then(res => res.json())
+      .then(response => {
+    document.getElementById("mytitle").innerHTML = response.title
+    document.getElementById("mydescription").innerHTML = response.description
+    document.getElementById("myimage").src = response.image
+    document.getElementById("myurl").innerHTML = response.url
+    })
+//artículo antiguo
+    fetch('https://api.linkpreview.net', {
+        method: 'POST',
+        headers: {
+          'X-Linkpreview-Api-Key': key,
+        },
+        mode: 'cors',
+        body: JSON.stringify(data1),
+      })
+      
+        .then(res => res.json())
+        .then(response => {
+      document.getElementById("mytitle1").innerHTML = response.title
+      document.getElementById("mydescription1").innerHTML = response.description
+      document.getElementById("myimage1").src = response.image
+      document.getElementById("myurl1").innerHTML = response.url
+      })
+
+//artículo llamativo
+fetch('https://api.linkpreview.net', {
+    method: 'POST',
+    headers: {
+      'X-Linkpreview-Api-Key': key,
+    },
+    mode: 'cors',
+    body: JSON.stringify(data2),
+  })
+  
+    .then(res => res.json())
+    .then(response => {
+  document.getElementById("mytitle2").innerHTML = response.title
+  document.getElementById("mydescription2").innerHTML = response.description
+  document.getElementById("myimage2").src = response.image
+  document.getElementById("myurl2").innerHTML = response.url
+  })
