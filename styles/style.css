@@ -368,7 +368,6 @@ justify-content: center;
 
 .presentacion__imagen{
     margin: auto;
-    
     max-width: 450px;
     border-radius: 8px;
     filter: drop-shadow(10px 10px 2px #222831);  
