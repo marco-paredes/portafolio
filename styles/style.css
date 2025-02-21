@@ -152,7 +152,7 @@ body {
     opacity: 1;
 }
 .entrada__arriba{
-    transform: translateY(50%);
+    transform: translateY(10%);
     opacity: 0;
     transition: transform 1s ease, opacity 2s ease 0.25s;
 }
@@ -160,6 +160,7 @@ body {
     transform: translateY(0);
     opacity: 1;
 }
+
 .entrada__abajo{
     transform: translateY(-50%);
     opacity: 0;
@@ -181,7 +182,7 @@ opacity: 1;
 }
 @media (max-width: 768px){
     .entrada__izq{
-        transform: translateX(-100%);
+        transform: translateX(-50%);
     }
 }
 .entrada__der{
@@ -367,13 +368,13 @@ justify-content: center;
 
 .presentacion__imagen{
     margin: auto;
-    width: 450px;
+    
     max-width: 450px;
     border-radius: 8px;
     filter: drop-shadow(10px 10px 2px #222831);  
 
     /*efecto barrido de imagen*/
-    transform: translateY(35%);
+    transform: translateY(20%);
     opacity: 0;
     transition: transform 1s ease, opacity 1s ease 0.25s;
 }
@@ -493,6 +494,9 @@ justify-content: center;
     }
     .about__content{
         width: 80%;
+    }
+    .about__texto{
+        font-size: 0.8rem;
     }
 }
 .proyectos__content{
@@ -758,11 +762,14 @@ input[type=text],[type=email], textarea {
   }
   @media (max-width:768px){
     .contacto{
-        width: 85%;
+        width: 80%;
     }
     .contacto__content{
         flex-direction: column;
         justify-content: center;
+    }
+    .color{
+        font-size: 0.8rem;
     }
 
     .formulario{
