@@ -183,3 +183,51 @@ fetch('https://api.linkpreview.net', {
   document.getElementById("myimage2").src = response.image
   document.getElementById("myurl2").innerHTML = response.url
   })
+
+//para ver video incrustado
+const tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+const firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+let player;
+
+function playApi(videoId){
+    player = new YT.Player('player', {
+        height: '315',
+        width: '560',
+        videoId: videoId,
+        playerVars:{
+            autoplay: 0,
+            controls: 1,
+            modestbranding: 1,
+            rel: 0
+        }
+    });
+}
+
+function openVideoPopup(videoId) {
+    const popup = document.getElementById('videoPopup');
+    popup.style.display = 'flex';
+    if (player) {
+        player.destroy();
+    }
+    playApi(videoId);
+}
+
+function closeVideoPopup() {
+    const popup = document.getElementById('videoPopup');
+    popup.style.display = 'none';
+    if (player) {
+        player.stopVideo();
+    }
+}
+
+document.querySelectorAll('.openVideoBtn').forEach(button =>{
+    button.addEventListener('click', ()=>{
+        const videoId = button.getAttribute('data-video-id');
+        openVideoPopup(videoId);
+    });  
+});
+
+document.getElementById('closeVideoBtn').addEventListener('click', closeVideoPopup);
