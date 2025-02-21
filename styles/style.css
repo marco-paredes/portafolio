@@ -303,6 +303,10 @@ justify-content: center;
     top: 10px;
     right: 15px;
     font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-extra);
+    background-color: var(--color-terciario);
+    padding: 0 5px;
     cursor: pointer;
 }
 #player{
