@@ -663,6 +663,7 @@ justify-content: center;
 }
 .blog__texto:hover{
     color: var(--color-terciario);
+    cursor: pointer;
 }
 .blog__imagen__galeria {
     height: 160px;
@@ -730,7 +731,6 @@ input[type=text],[type=email], textarea {
   
   label {
     padding: 12px 12px 12px 0;
-    
     color: var(--color-primario);
     font-family: var(--fuente-montserrat);
     font-weight: 600;
@@ -761,7 +761,7 @@ input[type=text],[type=email], textarea {
   }
   @media (max-width:768px){
     .contacto{
-        width: 80%;
+        width: 75%;
     }
     .contacto__content{
         flex-direction: column;
